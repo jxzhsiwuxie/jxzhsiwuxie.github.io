@@ -136,7 +136,14 @@
         # nohup sh bin/mqbroker -n 192.168.220.138:9876;192.168.220.139:9876 -c conf/2m-2s-sync/broker-a-s.properties &
      ```
 
-7. 查查看日志
+7. 完整配置文件
+
+   - [broker-a.properties](./broker-a.properties)
+   - [broker-b-s.properties](./broker-b-s.properties)
+   - [broker-b.properties](./broker-b.properties)
+   - [broker-a-s.properties](./broker-a-s.properties)
+
+8. 查查看日志
 
    ```shell
       jps
@@ -147,16 +154,16 @@
       tail -f ~/logs/rocketmqlogs/broker.log
    ```
 
-8. 停止
+9. 停止
 
    ```shell
       sh bin/mqshutdown broker
       sh bin/mqshutdown namesrv
    ```
 
-9. 在不改变任何默认配置的情况下启动集群的主从结点，通过 `tail -f ~/logs/rocketmqlogs/broker.log ` 就能得到所有的默认的配置了。
+10. 在不改变任何默认配置的情况下启动集群的主从结点，通过 `tail -f ~/logs/rocketmqlogs/broker.log ` 就能得到所有的默认的配置了。
 
-10. 千万注意每次启动集群时
+11. 千万注意每次启动集群时
     > 先启动两个 Master Broker 结点，再启动两个 Slave Broker 结点。
     >
     > 有时候如果 Broker 结点总是启动该不起来则可以：
@@ -174,8 +181,6 @@
 ```shell
    $ROCKETMQ_HOME/mqadmin {command} {args}
 ```
-
-### [rocketmq-cosole](https://github.com/apache/rocketmq-externals)
 
 ### [RocketMQ Dashboard](https://github.com/apache/rocketmq-dashboard)
 

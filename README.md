@@ -1,6 +1,6 @@
-## 思无邪
+# 思无邪
 
-## [RocketMQ 使用笔记](./RocketMQ)
+## RocketMQ 使用笔记
 
 ### [VMWare 虚拟机设置静态 ip](./RocketMQ/static_ip.md)
 
