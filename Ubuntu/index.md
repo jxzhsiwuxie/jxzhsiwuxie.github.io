@@ -120,7 +120,7 @@ reboot
 6. 设置远程以 ssh 登录 root 用户
 
    ```shell
-    vi /etc/sshd_config
+    vi /etc/ssh/sshd_config
     # 将 PermitRootLogin prohibit_password 修改为
     # PermitRootLogin yes
     # 重启 SSH server
