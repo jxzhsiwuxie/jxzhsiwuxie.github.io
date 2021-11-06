@@ -1,3 +1,5 @@
+
+
 # Win10 下搭建 CEF3 开发环境
 
 ## [CEF3 Sharp](https://github.com/cefsharp/CefSharp)
@@ -254,10 +256,15 @@ CefSharp 环境的搭建比较简单，直接参考上面的官方文档就可�
 
 基本上与 `Debug` 的配置一样，只是一方面将对应的 `Debug` 替换成 `Release`，另一方面，将 `C/C++ —> Code Generation —> Runtime Library` 从 `MDd` 改为 `MT`，同时，`Release` 环境下不需要添加 `_ITERATOR_DEBUG_LEVEL=0`。
 
-    ![img](./note.assets/2021-11-06_161852.png)
-    ![img](./note.assets/2021-11-06_162214.png)
-    ![img](./note.assets/2021-11-06_162319.png)
-    ![img](./note.assets/2021-11-06_162621.png)
+![img](index.assets/2021-11-06_161852.png)
+
+![img](index.assets/2021-11-06_162214.png)
+
+![img](index.assets/2021-11-06_162319.png)
+
+![img](index.assets/2021-11-06_162621.png)
+
+
 
 #### 编写代码
 
