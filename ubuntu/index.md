@@ -98,15 +98,15 @@ reboot
 
    ```yaml
    network:
-   version: 2
-   ethernets:
-     ens33: # 网卡名称
-       dhcp4: no
-       dhcp6: no
-       addresses: [192.168.220.100/24] # 本机ip及掩码，最后一段不要取1或2
-       gateway4: 192.168.220.2 # 前面记录的网关地址
-       nameservers:
-         addresses: [192.168.220.2] # DNS跟随网关地址一致，也可以改别的，如[114.114.114.114,8.8.8.8]
+      version: 2
+      ethernets:
+      ens33: # 网卡名称
+         dhcp4: no
+         dhcp6: no
+         addresses: [192.168.220.100/24] # 本机ip及掩码，最后一段不要取1或2
+         gateway4: 192.168.220.2 # 前面记录的网关地址
+         nameservers:
+            addresses: [192.168.220.2] # DNS跟随网关地址一致，也可以改别的，如[114.114.114.114,8.8.8.8]
    ```
 
 5. 使 ip 配置生效

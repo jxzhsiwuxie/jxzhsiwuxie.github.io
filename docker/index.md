@@ -5,3 +5,5 @@
 ## [Doccker-Compose 使用](./docker-compose.md)
 
 ## [使用 Harbor 搭建私有 Docker 仓库](./harbor.md)
+
+## [搭建 K8S 集群](./k8s.md)
