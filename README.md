@@ -6,4 +6,6 @@
 
 ## [Docker 使用](./docker/index.md)
 
-## [Cef3教程](./cef3/index.md)
+## [Cef3 教程](./cef3/index.md)
+
+## [Linux 命令行与 shell 脚本编程](./shell/index.md)
