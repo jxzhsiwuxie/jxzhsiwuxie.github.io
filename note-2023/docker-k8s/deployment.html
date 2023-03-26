@@ -1,0 +1,750 @@
+<!DOCTYPE html><html><head>
+      <title>deployment</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\jiangxiaozhu\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.8\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="k8s-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2">K8S &#x96C6;&#x7FA4;&#x90E8;&#x7F72;</h1>
+
+<h2 class="mume-header" id="%E7%BD%91%E7%BB%9C%E9%80%89%E6%8B%A9">&#x7F51;&#x7EDC;&#x9009;&#x62E9;</h2>
+
+<p>&#x4F7F;&#x7528;&#x4E00;&#x4E3B;&#x4E24;&#x4ECE;&#x7684;&#x96C6;&#x7FA4;&#x90E8;&#x7F72;</p>
+<blockquote>
+<p>&#x4F7F;&#x7528;&#x7F51;&#x6BB5; <code>192.168.100.0/24</code></p>
+</blockquote>
+<ol>
+<li><code>k8s-master01</code> ip &#x5730;&#x5740; <code>192.168.100.10</code></li>
+<li><code>k8s-node01</code> ip &#x5730;&#x5740; <code>192.168.100.20</code></li>
+<li><code>k8s-node02</code> ip &#x5730;&#x5740; <code>192.168.100.21</code></li>
+</ol>
+<blockquote>
+<p>VMWare &#x8BBE;&#x7F6E;&#x7F51;&#x7EDC;&#x4E3A; <code>NAT</code> &#x6A21;&#x5F0F;&#xFF0C;&#x540C;&#x65F6;&#x5173;&#x95ED; <code>DHCP</code> &#x83B7;&#x53D6; <code>ip</code> &#x7684;&#x65B9;&#x5F0F;<br>
+&#x5C06;&#x7F51;&#x5173;&#x8BBE;&#x7F6E;&#x4E3A; 192.168.100.2 &#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x662F; <code>.1</code></p>
+</blockquote>
+<p><a href="https://cloud.tencent.com/developer/inventory/499/article/1691013">&#x53C2;&#x8003;1</a><br>
+<a href="https://zhuanlan.zhihu.com/p/130984945">&#x53C2;&#x8003;2</a></p>
+<p><img src="images/insert-1679326018481.webp" alt="img"></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token function">vi</span> /etc/sysconfig/network-scripts/ifcfg-ens33
+
+
+<span class="token comment"># master &#x914D;&#x7F6E;</span>
+<span class="token assign-left variable">TYPE</span><span class="token operator">=</span>Ethernet
+<span class="token assign-left variable">PROXY_METHOD</span><span class="token operator">=</span>none
+<span class="token assign-left variable">BROWSER_ONLY</span><span class="token operator">=</span>no
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span>static
+<span class="token assign-left variable">DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV4_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6INIT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_AUTOCONF</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6_ADDR_GEN_MODE</span><span class="token operator">=</span>stable-privacy
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span>ens33
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>382c66d5-070d-4251-8b7b-fa4186812a9a
+<span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>ens33
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">192.168</span>.100.10
+<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.255.0
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">192.168</span>.100.2
+<span class="token assign-left variable">DNS1</span><span class="token operator">=</span><span class="token number">192.168</span>.100.2
+<span class="token assign-left variable">DNS2</span><span class="token operator">=</span><span class="token number">114.114</span>.114.114
+
+<span class="token comment"># node01 &#x914D;&#x7F6E;</span>
+<span class="token assign-left variable">TYPE</span><span class="token operator">=</span>Ethernet
+<span class="token assign-left variable">PROXY_METHOD</span><span class="token operator">=</span>none
+<span class="token assign-left variable">BROWSER_ONLY</span><span class="token operator">=</span>no
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span>static
+<span class="token assign-left variable">DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV4_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6INIT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_AUTOCONF</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6_ADDR_GEN_MODE</span><span class="token operator">=</span>stable-privacy
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span>ens33
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>382c66d5-070d-4251-8b7b-fa4186812a9a
+<span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>ens33
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">192.168</span>.100.20
+<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.255.0
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">192.168</span>.100.2
+<span class="token assign-left variable">DNS1</span><span class="token operator">=</span><span class="token number">192.168</span>.100.2
+<span class="token assign-left variable">DNS2</span><span class="token operator">=</span><span class="token number">114.114</span>.114.114
+
+<span class="token comment"># node02 &#x914D;&#x7F6E;</span>
+<span class="token assign-left variable">TYPE</span><span class="token operator">=</span>Ethernet
+<span class="token assign-left variable">PROXY_METHOD</span><span class="token operator">=</span>none
+<span class="token assign-left variable">BROWSER_ONLY</span><span class="token operator">=</span>no
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span>static
+<span class="token assign-left variable">DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV4_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6INIT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_AUTOCONF</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6_ADDR_GEN_MODE</span><span class="token operator">=</span>stable-privacy
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span>ens33
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>382c66d5-070d-4251-8b7b-fa4186812a9a
+<span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>ens33
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">192.168</span>.100.21
+<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.255.0
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">192.168</span>.100.2
+<span class="token assign-left variable">DNS1</span><span class="token operator">=</span><span class="token number">192.168</span>.100.2
+<span class="token assign-left variable">DNS2</span><span class="token operator">=</span><span class="token number">114.114</span>.114.114
+
+<span class="token comment"># &#x91CD;&#x542F;</span>
+<span class="token function">reboot</span>
+
+<span class="token comment"># ssh &#x8FDE;&#x63A5; master &#x8282;&#x70B9;</span>
+<span class="token function">ssh</span> root@192.168.100.10
+
+</pre><h2 class="mume-header" id="%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE">&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;</h2>
+
+<h3 class="mume-header" id="%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E4%B8%89%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%BD%E8%A6%81%E6%89%A7%E8%A1%8C">&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#x4FEE;&#x6539;&#xFF08;&#x4E09;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x90FD;&#x8981;&#x6267;&#x884C;&#xFF09;</h3>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x67E5;&#x770B;&#x5185;&#x6838;linux&#x7248;&#x672C;</span>
+<span class="token function">cat</span> /proc/version
+<span class="token comment"># [root@localhost ~]# cat /proc/version</span>
+<span class="token comment"># Linux version 3.10.0-1160.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) ) #1 SMP Mon Oct 19 16:18:59 UTC 2020</span>
+
+<span class="token comment"># &#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;</span>
+systemctl stop firewalld <span class="token operator">&amp;&amp;</span> systemctl disable firewalld <span class="token operator">&amp;&amp;</span> iptables -F
+<span class="token comment"># &#x5173;&#x95ED;selinux</span>
+<span class="token comment"># sed -i &apos;s/^SELINUX=enforcing$/SELINUX=permissive/&apos; /etc/selinux/config &amp;&amp; setenforce 0</span>
+<span class="token function">sed</span> -i <span class="token string">&apos;s/enforcing/disabled/&apos;</span> /etc/selinux/config <span class="token operator">&amp;&amp;</span> setenforce <span class="token number">0</span>
+
+<span class="token comment"># &#x5173;&#x95ED;swap &#x4E14; &#x5199;&#x5165;&#x5230; /etc/fstab &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4FDD;&#x8BC1;&#x91CD;&#x542F;&#x673A;&#x5668;&#x4E5F;&#x751F;&#x6548;</span>
+swapoff -a <span class="token operator">&amp;&amp;</span> <span class="token function">sed</span> -ri <span class="token string">&apos;s/.*swap.*/#&amp;/&apos;</span> /etc/fstab
+
+<span class="token comment"># &#x914D;&#x7F6E;iptables&#x7684;ACCEPT&#x89C4;&#x5219;</span>
+<span class="token comment"># iptables -F &amp;&amp; iptables -X &amp;&amp; iptables -F -t nat &amp;&amp; iptables -X -t nat &amp;&amp; iptables -P FORWARD ACCEPT</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x7CFB;&#x7EDF;&#x53C2;&#x6570;</span>
+<span class="token function">cat</span> <span class="token operator">&gt;</span> /etc/sysctl.d/k8s.conf <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF</span>
+
+sysctl --system
+</pre><h3 class="mume-header" id="%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA">&#x7CFB;&#x7EDF;&#x65F6;&#x533A;</h3>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x67E5;&#x770B;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x65F6;&#x533A;</span>
+timedatectl status
+<span class="token comment">#      Local time: &#x4E00; 2023-03-20 23:40:52 CST</span>
+<span class="token comment">#   Universal time: &#x4E00; 2023-03-20 15:40:52 UTC</span>
+<span class="token comment">#         RTC time: &#x4E00; 2023-03-20 15:40:52</span>
+<span class="token comment">#        Time zone: Asia/Shanghai (CST, +0800)</span>
+<span class="token comment">#      NTP enabled: yes</span>
+<span class="token comment"># NTP synchronized: yes</span>
+<span class="token comment">#  RTC in local TZ: no</span>
+<span class="token comment">#       DST active: n/a</span>
+
+<span class="token comment"># &#x5982;&#x679C;&#x4E0D;&#x4E00;&#x6837;&#x5219;&#x8BBE;&#x7F6E;&#x6210;&#x4E00;&#x6837;&#x7684;</span>
+timedatectl set-timezone Asia/Shanghai
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x65F6;&#x949F;&#x540C;&#x6B65;</span>
+systemctl start chronyd
+systemctl <span class="token builtin class-name">enable</span> chronyd
+
+</pre><h3 class="mume-header" id="%E5%9B%BA%E5%AE%9A%E4%B8%BB%E6%9C%BA%E5%90%8D">&#x56FA;&#x5B9A;&#x4E3B;&#x673A;&#x540D;</h3>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x67E5;&#x770B;&#x5F53;&#x524D;&#x4E3B;&#x673A;&#x540D;</span>
+<span class="token function">uname</span> -n
+<span class="token function">hostname</span>
+<span class="token comment"># localhost.localdomain</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x4E3B;&#x673A;&#x540D;&#x540C;&#x65F6;&#x4FEE;&#x6539; hosts &#x6587;&#x4EF6;</span>
+<span class="token comment"># master01 &#x8282;&#x70B9;&#x6267;&#x884C;</span>
+hostnamectl set-hostname k8s-master01
+<span class="token comment"># ndoe01 &#x8282;&#x70B9;&#x6267;&#x884C;</span>
+hostnamectl set-hostname k8s-node01
+<span class="token comment"># ndoe02 &#x8282;&#x70B9;&#x6267;&#x884C;</span>
+hostnamectl set-hostname k8s-node02
+
+<span class="token comment"># &#x4E09;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x6267;&#x884C;</span>
+<span class="token function">cat</span> /etc/hosts
+
+<span class="token comment"># &#x5411; hosts &#x8FFD;&#x52A0; ip &#x4E3B;&#x673A;&#x540D; &#x6620;&#x5C04;</span>
+<span class="token function">cat</span> <span class="token operator">&gt;&gt;</span> /etc/hosts <span class="token operator">&lt;&lt;-</span><span class="token string">&apos;EOF&apos;
+
+192.168.100.10 k8s-master01
+192.168.100.20 k8s-node01
+192.168.100.21 k8s-node02
+EOF</span>
+
+<span class="token comment"># &#x518D;&#x6B21;&#x67E5;&#x770B; hosts &#x5185;&#x5BB9;</span>
+<span class="token function">cat</span> /etc/hosts
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x91CD;&#x542F;&#x7F51;&#x8DEF;&#x670D;&#x52A1;</span>
+systemctl restart network
+
+<span class="token comment"># &#x6216;&#x8005;&#x5728; master01 &#x4E0A;&#x6267;&#x884C;&#x4E4B;&#x540E;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x5206;&#x53D1;</span>
+<span class="token function">scp</span> /etc/hosts k8s-node01:/etc/
+<span class="token function">scp</span> /etc/hosts k8s-node02:/etc/
+
+<span class="token comment"># &#x67E5;&#x770B;&#x662F;&#x5426;&#x8BBE;&#x7F6E;&#x6210;&#x529F;&#xFF0C;&#x5728; master &#x548C; node &#x4E4B;&#x95F4;&#x901A;&#x8FC7;&#x4E3B;&#x673A;&#x540D; ping</span>
+<span class="token function">ping</span> k8s-master01
+<span class="token function">ping</span> k8s-node01
+<span class="token function">ping</span> k8s-node02
+</pre><h2 class="mume-header" id="%E5%AE%89%E8%A3%85-docker%E4%B8%89%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%BD%E5%90%8C%E6%A0%B7%E5%AE%89%E8%A3%85">&#x5B89;&#x88C5; Docker&#xFF08;&#x4E09;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x90FD;&#x540C;&#x6837;&#x5B89;&#x88C5;&#xFF09;</h2>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash">yum -y <span class="token function">install</span> <span class="token function">wget</span>
+<span class="token comment"># &#x914D;&#x7F6E;&#x963F;&#x91CC;&#x4E91; yum &#x6E90;</span>
+<span class="token function">wget</span> https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+
+<span class="token comment"># &#x67E5;&#x770B;&#x5F53;&#x524D;&#x652F;&#x6301;&#x7684;docker&#x7248;&#x672C;</span>
+yum list docker-ce --showduplicates
+
+<span class="token comment"># &#x5B89;&#x88C5;&#x7279;&#x5B9A;&#x7248;&#x672C;&#x7684; docker &#x8FD9;&#x91CC;&#x4F7F;&#x7528; 19.03.9-3.el7</span>
+yum -y <span class="token function">install</span> docker-ce-19.03.9-3.el7 docker-ce-cli-19.03.9-3.el7
+
+<span class="token comment"># &#x7F16;&#x8F91;docker&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="token comment"># docker&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;cgroup driver&#x4F5C;&#x4E3A;cgroupfs&#xFF0C;&#x800C;k8s&#x63A8;&#x8350;&#x4F7F;&#x7528;systemd&#x6765;&#x4EE3;&#x66FF;cgroupfs</span>
+<span class="token function">mkdir</span> /etc/docker/
+<span class="token function">cat</span> <span class="token operator">&gt;</span> /etc/docker/daemon.json <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+{
+    &quot;registry-mirrors&quot;: [&quot;https://gqs7xcfd.mirror.aliyuncs.com&quot;,&quot;https://hub-mirror.c.163.com&quot;],
+    &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],
+    &quot;log-driver&quot;: &quot;json-file&quot;,
+    &quot;log-opts&quot;: {
+        &quot;max-size&quot;: &quot;100m&quot;
+    },
+    &quot;storage-driver&quot;: &quot;overlay2&quot;
+}
+EOF</span>
+
+<span class="token comment"># &#x542F;&#x52A8;docker</span>
+systemctl daemon-reload <span class="token operator">&amp;&amp;</span> systemctl <span class="token builtin class-name">enable</span> docker <span class="token operator">&amp;&amp;</span> systemctl start docker
+
+<span class="token comment"># &#x67E5;&#x770B;docker&#x7248;&#x672C;</span>
+docker version
+</pre><h2 class="mume-header" id="%E6%89%80%E6%9C%89%E8%8A%82%E7%82%B9%E5%AE%89%E8%A3%85-kubeadm-kubelet-%E5%92%8C-kubectl">&#x6240;&#x6709;&#x8282;&#x70B9;&#x5B89;&#x88C5; kubeadm&#x3001;kubelet &#x548C; kubectl</h2>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x914D;&#x7F6E;yum&#x6E90;</span>
+<span class="token function">cat</span> <span class="token operator">&gt;</span> /etc/yum.repos.d/kubernetes.repo <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+       https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF</span>
+
+<span class="token comment"># &#x590D;&#x5236;&#x5230;k8s-node01&#x3001;k8s-node02</span>
+<span class="token function">scp</span> /etc/yum.repos.d/kubernetes.repo k8s-node01:/etc/yum.repos.d/
+<span class="token function">scp</span> /etc/yum.repos.d/kubernetes.repo k8s-node02:/etc/yum.repos.d/
+
+<span class="token comment"># &#x67E5;&#x770B;</span>
+<span class="token function">cat</span> /etc/yum.repos.d/kubernetes.repo
+
+<span class="token comment"># &#x67E5;&#x8BE2; kubeadm&#x3001;kubelet&#x3001;kubectl &#x53EF;&#x7528;&#x7684;&#x7248;&#x672C;</span>
+yum list kubeadm --showduplicates
+yum list kubelet --showduplicates
+yum list kubectl --showduplicates
+
+<span class="token comment"># &#x5B89;&#x88C5;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x7684; kubeadm&#x3001;kubelet&#x3001;kubectl&#xFF08;&#x8FD9;&#x91CC;&#x4F7F;&#x7528; 1.19.6-0&#xFF09;</span>
+yum <span class="token function">install</span> -y kubeadm-1.19.6-0 kubelet-1.19.6-0 kubectl-1.19.6-0
+
+
+<span class="token comment"># &#x8BBE;&#x7F6E;kubelet&#x5F00;&#x673A;&#x81EA;&#x542F;</span>
+<span class="token comment"># &#x5B89;&#x88C5;&#x597D;kubelet&#x540E;&#x5148;&#x4E0D;&#x7528;&#x542F;&#x52A8;&#xFF0C;&#x5F53;&#x96C6;&#x7FA4;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x81EA;&#x52A8;&#x542F;&#x52A8;kubelet&#xFF0C;&#x9009;&#x62E9;&#x542F;&#x52A8;kubelet&#x4F1A;&#x62A5;&#x9519;</span>
+systemctl <span class="token builtin class-name">enable</span> kubelet
+
+<span class="token comment"># &#x67E5;&#x770B;&#x7248;&#x672C;</span>
+kubectl version
+kubelet --version
+kubeadm version
+</pre><h3 class="mume-header" id="master-%E8%8A%82%E7%82%B9%E5%88%9D%E5%A7%8B%E5%8C%96">Master &#x8282;&#x70B9;&#x521D;&#x59CB;&#x5316;</h3>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x6307;&#x5B9A;k8s&#x7684;&#x7248;&#x672C;&#x3001;pod&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x6BB5;&#x3001;service&#x8D44;&#x6E90;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x6BB5;&#x3001;apiserver&#x5730;&#x5740;</span>
+<span class="token comment"># apiserver-advertise-address &#x6307;&#x5B9A;&#x4E3A;&#x6267;&#x884C;&#x7684; master ip</span>
+kubeadm init <span class="token punctuation">\</span>
+--kubernetes-version<span class="token operator">=</span><span class="token number">1.19</span>.6 <span class="token punctuation">\</span>
+--apiserver-advertise-address<span class="token operator">=</span><span class="token number">0.0</span>.0.0 <span class="token punctuation">\</span>
+--service-cidr<span class="token operator">=</span><span class="token number">10.96</span>.0.0/16 <span class="token punctuation">\</span>
+--pod-network-cidr<span class="token operator">=</span><span class="token number">10.245</span>.0.0/16 <span class="token punctuation">\</span>
+--image-repository registry.aliyuncs.com/google_containers <span class="token punctuation">\</span>
+--apiserver-advertise-address<span class="token operator">=</span><span class="token number">192.168</span>.100.10
+
+
+<span class="token comment"># &#x6700;&#x7EC8;&#x6267;&#x884C;&#x6210;&#x529F;&#x65F6;&#x65E5;&#x5FD7;</span>
+
+<span class="token comment"># Your Kubernetes control-plane has initialized successfully!</span>
+<span class="token comment">#</span>
+<span class="token comment"># To start using your cluster, you need to run the following as a regular user:</span>
+<span class="token comment">#</span>
+<span class="token comment">#   mkdir -p $HOME/.kube</span>
+<span class="token comment">#   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span>
+<span class="token comment">#   sudo chown $(id -u):$(id -g) $HOME/.kube/config</span>
+<span class="token comment">#</span>
+<span class="token comment"># You should now deploy a pod network to the cluster.</span>
+<span class="token comment"># Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:</span>
+<span class="token comment">#   https://kubernetes.io/docs/concepts/cluster-administration/addons/</span>
+<span class="token comment">#</span>
+<span class="token comment"># Then you can join any number of worker nodes by running the following on each as root:</span>
+<span class="token comment">#</span>
+<span class="token comment"># kubeadm join 192.168.100.10:6443 --token bhid43.o7mj1qdfjjzdo3dv \</span>
+<span class="token comment">#     --discovery-token-ca-cert-hash sha256:839de59433230cc3a84a7fa0b87d4f0c6fdfc5a1d4e1668cb6caa348b585bd18 </span>
+<span class="token comment">#</span>
+
+<span class="token comment"># &#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#x975E;&#x5E38;&#x91CD;&#x8981;</span>
+<span class="token comment"># kubeadm join 192.168.100.10:6443 --token bhid43.o7mj1qdfjjzdo3dv \</span>
+<span class="token comment">#     --discovery-token-ca-cert-hash sha256:839de59433230cc3a84a7fa0b87d4f0c6fdfc5a1d4e1668cb6caa348b585bd18 </span>
+
+<span class="token comment"># &#x521B;&#x5EFA;&#x5FC5;&#x8981;&#x6587;&#x4EF6;&#xFF08;&#x5728;&#x4E0A;&#x9762;&#x6253;&#x5370;&#x7684;&#x4FE1;&#x606F;&#x4E2D;&#x4E5F;&#x80FD;&#x770B;&#x5230;&#xFF09;</span>
+<span class="token comment"># &#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x662F;&#x4F7F;&#x7528; kubectl &#x547D;&#x4EE4;&#x7684;&#x524D;&#x63D0;&#xFF0C;kubectl &#x547D;&#x4EE4;&#x4F7F;&#x7528;&#x662F;&#x9700;&#x8981;&#x53BB;&#x627E; config &#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="token function">mkdir</span> -p <span class="token environment constant">$HOME</span>/.kube
+<span class="token function">sudo</span> <span class="token function">cp</span> -i /etc/kubernetes/admin.conf <span class="token environment constant">$HOME</span>/.kube/config
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -u<span class="token variable">)</span></span><span class="token builtin class-name">:</span><span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -g<span class="token variable">)</span></span> <span class="token environment constant">$HOME</span>/.kube/config
+
+<span class="token comment"># &#x67E5;&#x770B;master&#x662F;&#x5426;&#x52A0;&#x5165;&#x96C6;&#x7FA4;</span>
+kubectl get node
+</pre><h3 class="mume-header" id="k8s-node01-k8s-node02-%E5%8A%A0%E5%85%A5%E9%9B%86%E7%BE%A4-%E5%88%86%E5%88%AB%E5%9C%A8%E4%B8%A4%E5%8F%B0-node-%E6%9C%BA%E5%AD%90%E4%B8%8A%E6%89%A7%E8%A1%8C">k8s-node01&#x3001;k8s-node02 &#x52A0;&#x5165;&#x96C6;&#x7FA4; (&#x5206;&#x522B;&#x5728;&#x4E24;&#x53F0; node &#x673A;&#x5B50;&#x4E0A;&#x6267;&#x884C;)</h3>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x4F7F;&#x7528;&#x521D;&#x59CB;&#x5316; master &#x8282;&#x70B9;&#x65F6;&#x7ED9;&#x51FA;&#x7684;&#x4FE1;&#x606F;</span>
+kubeadm <span class="token function">join</span> <span class="token number">192.168</span>.100.10:6443 --token bhid43.o7mj1qdfjjzdo3dv <span class="token punctuation">\</span>
+    --discovery-token-ca-cert-hash sha256:839de59433230cc3a84a7fa0b87d4f0c6fdfc5a1d4e1668cb6caa348b585bd18
+<span class="token comment"># &#x6267;&#x884C;&#x6210;&#x529F;&#x540E;&#x6253;&#x5370;&#x51FA;</span>
+<span class="token comment"># This node has joined the cluster:</span>
+<span class="token comment"># * Certificate signing request was sent to apiserver and a response was received.</span>
+<span class="token comment"># * The Kubelet was informed of the new secure connection details.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Run &apos;kubectl get nodes&apos; on the control-plane to see this node join the cluster.</span>
+
+</pre><h3 class="mume-header" id="%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E6%8F%92%E4%BB%B6-flannel">&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x7F51;&#x7EDC;&#x63D2;&#x4EF6; flannel</h3>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash">yum <span class="token function">install</span> -y lrzsz
+
+<span class="token comment"># &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x53EF;&#x4ECE;&#x8FD9;&#x91CC;&#x83B7;&#x53D6; https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span>
+<span class="token comment"># &#x6CE8;&#x610F; &quot;Network&quot;: &quot;10.245.0.0/16&quot;, &#x5730;&#x5740;&#x9700;&#x4E0E;&#x521D;&#x59CB;&#x5316;pod-network-cid&#x5730;&#x5740;&#x4FDD;&#x6301;&#x4E00;&#x81F4;</span>
+<span class="token comment"># &#x540C;&#x65F6;&#x8BB0;&#x5F97;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x955C;&#x50CF;&#x5730;&#x5740;&#x4F7F;&#x7528; docker.io/flannel &#x800C;&#x4E0D;&#x8981;&#x4F7F;&#x7528; docker.io/rancher &#x5426;&#x5219;&#x4E0B;&#x8F7D;&#x4E0D;&#x4E86;</span>
+<span class="token comment"># coredns&#x4F1A;&#x5728;&#x7F51;&#x7EDC;&#x7EC4;&#x4EF6;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x540E;&#x6062;&#x590D;&#x6B63;&#x5E38;</span>
+kubectl apply -f ./kube-flannel.yml
+
+<span class="token comment"># &#x4E09;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x91CD;&#x542F;kubelet&#x670D;&#x52A1;</span>
+systemctl restart kubelet
+</pre><blockquote>
+<p>&#x5230;&#x6B64;&#x4E0D;&#x51FA;&#x610F;&#x5916;&#x7684;&#x8BDD; <code>K8S</code> &#x96C6;&#x7FA4;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x542F;&#x52A8;&#x4E86;&#x3002;</p>
+</blockquote>
+<h3 class="mume-header" id="%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">&#x9057;&#x7559;&#x95EE;&#x9898;&#x89E3;&#x51B3;</h3>
+
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x67E5;&#x770B;&#x7EC4;&#x4EF6;&#x5065;&#x5EB7;&#x72B6;&#x6001;</span>
+kubectl get cs
+<span class="token comment"># NAME                 STATUS      MESSAGE                                                                                       ERROR</span>
+<span class="token comment"># scheduler            Unhealthy   Get &quot;http://127.0.0.1:10251/healthz&quot;: dial tcp 127.0.0.1:10251: connect: connection refused   </span>
+<span class="token comment"># controller-manager   Unhealthy   Get &quot;http://127.0.0.1:10252/healthz&quot;: dial tcp 127.0.0.1:10252: connect: connection refused   </span>
+<span class="token comment"># etcd-0               Healthy     {&quot;health&quot;:&quot;true&quot;}  </span>
+
+<span class="token comment"># &#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x662F; /etc/kubernetes/manifests/ &#x4E0B;&#x7684;</span>
+<span class="token comment"># kube-controller-manager.yaml &#x548C; kube-scheduler.yaml &#x8BBE;&#x7F6E;&#x7684;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#x662F;0&#x5BFC;&#x81F4;&#x7684;&#xFF0C;</span>
+<span class="token comment"># &#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#x662F;&#x6CE8;&#x91CA;&#x6389;&#x5BF9;&#x5E94;&#x7684;port&#x5373;&#x53EF;</span>
+</pre><p><img src="images/Img_2023-03-21_22-58-40.png" alt="img"><br>
+<img src="images/Img_2023-03-21_23-00-40.png" alt="img"></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x6CE8;&#x91CA;&#x6389;&#x8FD9;&#x4E24;&#x884C;&#x4E4B;&#x540E;&#xFF0C;&#x91CD;&#x542F;kubelet&#x670D;&#x52A1;</span>
+systemctl restart kubelet
+
+<span class="token comment"># &#x518D;&#x6B21;&#x67E5;&#x770B;&#x7EC4;&#x4EF6;&#x5065;&#x5EB7;&#x72B6;&#x6001;&#xFF0C;&#x5DF2;&#x7ECF;&#x90FD;&#x6B63;&#x5E38;&#x4E86;</span>
+kubectl get cs
+<span class="token comment"># Warning: v1 ComponentStatus is deprecated in v1.19+</span>
+<span class="token comment"># NAME                 STATUS    MESSAGE             ERROR</span>
+<span class="token comment"># scheduler            Healthy   ok                  </span>
+<span class="token comment"># controller-manager   Healthy   ok                  </span>
+<span class="token comment"># etcd-0               Healthy   {&quot;health&quot;:&quot;true&quot;}  </span>
+
+<span class="token comment"># &#x67E5;&#x770B;&#x8282;&#x70B9;&#x72B6;&#x6001;</span>
+kubectl get nodes
+<span class="token comment"># NAME           STATUS   ROLES    AGE   VERSION</span>
+<span class="token comment"># k8s-master01   Ready    master   21h   v1.19.6</span>
+<span class="token comment"># k8s-node01     Ready    &lt;none&gt;   21h   v1.19.6</span>
+<span class="token comment"># k8s-node02     Ready    &lt;none&gt;   21h   v1.19.6</span>
+</pre><h2 class="mume-header" id="%E5%90%91-k8s-%E9%9B%86%E7%BE%A4%E4%B8%AD%E9%83%A8%E7%BD%B2%E4%B8%80%E4%BA%9B%E6%9C%8D%E5%8A%A1">&#x5411; K8S &#x96C6;&#x7FA4;&#x4E2D;&#x90E8;&#x7F72;&#x4E00;&#x4E9B;&#x670D;&#x52A1;</h2>
+
+<h3 class="mume-header" id="%E5%88%9B%E5%BB%BA%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4-ns-test">&#x521B;&#x5EFA;&#x547D;&#x540D;&#x7A7A;&#x95F4; ns-test</h3>
+
+<pre data-role="codeBlock" data-info="yaml" class="language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Namespace
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> ns<span class="token punctuation">-</span>test
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> label<span class="token punctuation">-</span>test
+</pre><pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token function">cat</span> <span class="token operator">&gt;</span> ~/namespace-test.yaml <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-test
+  labels:
+    name: label-test
+EOF</span>
+
+<span class="token comment"># &#x521B;&#x5EFA;&#x547D;&#x540D;&#x7A7A;&#x95F4;</span>
+kubectl apply -f ~/namespace-test.yaml
+<span class="token comment"># &#x67E5;&#x8BE2;&#x6240;&#x6709;&#x547D;&#x540D;&#x7A7A;&#x95F4;</span>
+kubectl get namespace
+</pre><h3 class="mume-header" id="%E5%88%9B%E5%BB%BA-deployment">&#x521B;&#x5EFA; deployment</h3>
+
+<pre data-role="codeBlock" data-info="yaml" class="language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> ns<span class="token punctuation">-</span>test
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx<span class="token punctuation">-</span>test
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> nginx
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx<span class="token punctuation">:</span>alpine
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+</pre><pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token function">cat</span> <span class="token operator">&gt;</span> ~/nginx-test.yaml <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: ns-test
+  name: nginx-test
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+EOF</span>
+
+<span class="token comment"># &#x521B;&#x5EFA; deployment</span>
+kubectl apply -f ~/nginx-test.yaml
+<span class="token comment"># &#x67E5;&#x8BE2;&#x6240;&#x6709; deployment &#x6216; pod</span>
+kubectl get deployment -n ns-test
+kubectl get pod -n ns-test -o wide
+</pre><p>&#x6B64;&#x65F6;&#x901A;&#x8FC7; <code>kubectl get pod -n ns-test -o wide</code> &#x83B7;&#x5F97;&#x7684; <code>pod</code> &#x7684; <code>ip</code> &#x5DF2;&#x7ECF;&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x4E86;&#x3002;&#x4E09;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7684;&#x3002;<br>
+&#x4F46;&#x662F;&#x5728;&#x96C6;&#x7FA4;&#x5916;&#x90E8;&#x8FD8;&#x662F;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x7684;&#x3002;</p>
+<p><img src="images/Img_2023-03-21_23-30-40.png" alt="img"></p>
+<h3 class="mume-header" id="%E5%88%9B%E5%BB%BA-service">&#x521B;&#x5EFA; service</h3>
+
+<pre data-role="codeBlock" data-info="yaml" class="language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx<span class="token punctuation">-</span>service
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> ns<span class="token punctuation">-</span>test
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> nginx
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">nodePort</span><span class="token punctuation">:</span> <span class="token number">1080</span>
+</pre><pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token function">cat</span> <span class="token operator">&gt;</span> ~/service-test.yaml <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: ns-test
+spec:
+  type: NodePort
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30080
+EOF</span>
+
+<span class="token comment"># &#x521B;&#x5EFA; service</span>
+kubectl apply -f ~/service-test.yaml
+<span class="token comment"># &#x67E5;&#x8BE2;&#x6240;&#x6709; service</span>
+kubectl get svc -n ns-test
+</pre><p>&#x6B64;&#x65F6;&#x5728; <code>k8s</code> &#x96C6;&#x7FA4;&#x5916;&#x90E8;&#xFF0C;&#x4F8B;&#x5982;&#x5728; <code>VMWare</code> &#x7684;&#x5BBF;&#x4E3B;&#x673A;&#x4E0A;&#xFF0C;&#x5229;&#x7528; <code>k8s-master01</code> &#x7684; <code>ip: 192.168.100.10</code> &#x52A0;&#x4E0A; <code>nodePort: 30080</code><br>
+&#x5373;&#x53EF;&#x8BBF;&#x95EE;&#x96C6;&#x7FA4;&#x5185;&#x7684; <code>Nginx</code> &#x670D;&#x52A1;&#x3002;</p>
+<p><img src="images/Img_2023-03-21_23-45-42.png" alt="img"></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

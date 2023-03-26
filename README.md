@@ -1,4 +1,4 @@
-# 思无邪
+# 笔记
 
 ## [VMWare 虚拟机设置静态 ip](./ubuntu/index.md)
 
@@ -11,3 +11,5 @@
 ## [Linux 命令行与 shell 脚本编程](./shell/index.md)
 
 ## [GraalVM 一些应用](./graalVM/index.md)
+
+## [Note-2023](./note-2023/index.md)
